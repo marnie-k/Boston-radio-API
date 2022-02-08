@@ -1,0 +1,30 @@
+{
+  "name": "boston-radio-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "npm run lint:pug && npm run lint:eslint",
+   "lint:pug": "./node_modules/.bin/pug-lint .",
+   "lint:eslint": "./node_modules/.bin/eslint --format codeframe ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marnie-k/Boston-radio-API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marnie-k/Boston-radio-API/issues"
+  },
+  "homepage": "https://github.com/marnie-k/Boston-radio-API#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.8.0",
+    "nodemon": "^2.0.15",
+    "pug-lint": "^2.6.0"
+  }
+}
