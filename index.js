@@ -1,6 +1,6 @@
 const express = require('express')
 
-const getBySlug = require('./controllers')
+const { getAllStations, getBySlug  }= require('./controllers')
 
 const app = express()
 
