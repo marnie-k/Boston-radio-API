@@ -1,12 +1,13 @@
 {
   "name": "boston-radio-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is an API of Boston Radio stations",
   "main": "index.js",
   "scripts": {
+    "dev": "./node_modules/.bin/nodemon index.js",
     "lint": "npm run lint:pug && npm run lint:eslint",
-   "lint:pug": "./node_modules/.bin/pug-lint .",
-   "lint:eslint": "./node_modules/.bin/eslint --format codeframe ."
+    "lint:pug": "pug-lint .",
+    "lint:eslint": "eslint --format codeframe ."
   },
   "repository": {
     "type": "git",
