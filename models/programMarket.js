@@ -1,7 +1,6 @@
 const programMarket = (connection, Sequelize) => connection.define('programMarket', {
-    id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-    programmingId: { type: Sequelize.INTEGER, allowNull: false },
-    marketsId: { type: Sequelize.INTEGER, allowNull: false }
+    programmingId: { type: Sequelize.INTEGER, allowNull: false, primaryKey: true },
+    marketsId: { type: Sequelize.INTEGER, allowNull: false, primaryKey: true  }
   }, { paranoid: true })
   
   module.exports = programMarket
