@@ -1,3 +1,4 @@
+const express = require('express')
 const models = require('../markets')
 
 const getAllMarkets = async (request, response) => {
@@ -28,4 +29,10 @@ const getMarketByName = async (request, response) => {
     : response.sendStatus(404)
 }
 
-module.exports = { getAllMarkets, getMarketByName }
+const getMarketById = () => {
+
+}
+
+module.exports = { getAllMarkets, 
+                getMarketByName, 
+                getMarketById }

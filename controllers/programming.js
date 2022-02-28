@@ -1,7 +1,13 @@
 const express = require('express')
+const models = require('../programming')
 
-const getBySlug = () => {
+const getProgrammingById = () => {
 
 }
 
-module.exposrt = getBySlug
+const getProgrammingByName = () => {
+
+}
+
+module.exports = { getProgrammingById,
+                getProgrammingByName }

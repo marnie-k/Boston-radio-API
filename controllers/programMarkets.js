@@ -1,7 +1,2 @@
 const express = require('express')
-
-const getAllStations = () => {
-
-}
-
-module.exposrt = getAllStations
+const models = require('../programMarkets')
