@@ -1,11 +1,11 @@
 const express = require('express')
 const app = express()
-
+/*
 const marketRoutes = require('./routes/marketRoutes')
 const programMarketRoutes = require('./routes/programMarketRoutes')
 const programmingRoutes = require('./routes/programmingRoutes')
 const stationRoutes = require('./routes/stationRoutes')
-
+*/
 app.all('*', (request, response) => {
     response.sendStatus(404)
 })

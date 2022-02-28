@@ -6,7 +6,6 @@ const getAllMarkets = async (request, response) => {
 
   return response.send(markets)
 }
-
 const getMarketByName = async (request, response) => {
   /*
     const { identifier } = request.params
