@@ -13,7 +13,6 @@ module.exports = {
       })
       await queryInterface.createTable('programming', {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-        stationsId: { type: Sequelize.INTEGER, allowNull: false },
         programming: { type: Sequelize.STRING, allowNull: false },
         createdAt: { type: Sequelize.DATE, allowNull: false, defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'), },
         updatedAt: { type: Sequelize.DATE, allowNull: false, defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), },
@@ -21,16 +20,14 @@ module.exports = {
      })
       await queryInterface.createTable('markets', {
         id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-        stationId: { type: Sequelize.INTEGER, allowNull: false },
         market: { type: Sequelize.STRING, allowNull: false },
-        sentDate: { type: Sequelize.DATE, defaultValue: null, allowNull: true },
         createdAt: { type: Sequelize.DATE, allowNull: false, defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'), },
         updatedAt: { type: Sequelize.DATE, allowNull: false, defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), },
         deletedAt: { type: Sequelize.DATE, },
       })
       await queryInterface.createTable('programMarket', {
-        programmingId: { type: Sequelize.INTEGER, allowNull: false, primaryKey: true },
-        marketsId: { type: Sequelize.INTEGER, allowNull: false, primaryKey: true  },
+        programmingId: { type: Sequelize.INTEGER, allowNull: false, primaryKey: true, references: { model: 'programming', key: 'id' },
+        marketsId: { type: Sequelize.INTEGER, allowNull: false, primaryKey: true, references: { model: 'markets', key: 'id' },
         createdAt: { type: Sequelize.DATE, allowNull: false, defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'), },
         updatedAt: { type: Sequelize.DATE, allowNull: false, defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'), },
         deletedAt: { type: Sequelize.DATE, },

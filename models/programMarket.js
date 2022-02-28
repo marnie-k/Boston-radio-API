@@ -1,6 +1,8 @@
-const programMarket = (connection, Sequelize) => connection.define('programMarket', {
-    programmingId: { type: Sequelize.INTEGER, allowNull: false, primaryKey: true },
-    marketsId: { type: Sequelize.INTEGER, allowNull: false, primaryKey: true  }
-  }, { paranoid: true })
-  
-  module.exports = programMarket
+const programMarket = (connection, Sequelize, programming, markets) => {
+  connection.define ('programMarket', {
+          programmingId: { type: Sequelize.INTEGER,  primaryKey: true}, references: { model: programming,  key: id },
+          marketsId: { type: Sequelize.INTEGER, primaryKey: true}, references: { model: markets, key: id }
+        },{ paranoid: true })
+
+        module.exports = programMarket
+
