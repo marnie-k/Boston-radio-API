@@ -3,7 +3,5 @@ const programMarket = (connection, Sequelize, programming, markets) => connectio
           marketsId: { type: Sequelize.INTEGER, primaryKey: true}, references: { model: markets, key: id }
         },{ paranoid: true })
 
-      
-
         module.exports = programMarket
 
