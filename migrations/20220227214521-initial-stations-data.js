@@ -31,4 +31,4 @@ module.exports = {
    async down(queryInterface) {
     await queryInterface.bulkDelete('stations')
   }
-};
+}
