@@ -1,54 +1,9 @@
 const express = require('express')
-const models = require('./models/*')
-const express = require('express')
 
+const getAllProgramming = async (request, response) => {
+  const authors = await models.programming.findAll()
 
-const getAllMarkets = async (request, response) => {
-  const authors = await models.markets.findAll()
-
-  return response.send(markets)
-}
- /*
-const getMarketByName = async (request, response) => {
- 
-    const { identifier } = request.params
-
-  const author = await models.markets.findOne({
-    where: {
-      [models.Sequelize.Op.or]: [
-        { id: identifier },
-        { nameLast: { [models.Sequelize.Op.like]: `%${identifier}%` } },
-      ]
-    },
-    include: [{
-      model: models.Novels,
-      include: [{ model: models.Genres }]
-    }]
-  })
-
-  return market
-    ? response.send(market)
-    : response.sendStatus(404)
+  return response.send(programming)
 }
 
-const getMarketById = () => {
-
-}
-*/
-module.exports = { getAllMarkets, 
-                getMarketByName, 
-                getMarketById }
-
-/*
-const getProgrammingById = () => {
-
-}
-
-const getProgrammingByName = () => {
-
-}
-
-module.exports = { getProgrammingById,
-                getProgrammingByName }
-
-                */
+module.exports = getAllProgramming
