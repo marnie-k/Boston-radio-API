@@ -1,6 +1,6 @@
 const { response } = require('express')
 const express = require('express')
-const models = require('../stations')
+const models = require('./models/stations')
 
 const getAllStations = async (request, response) => {
     try{
@@ -11,7 +11,7 @@ const getAllStations = async (request, response) => {
         }
         return response.send('Error')
     }
-
+/*
 const getStationByCallLetters = async (request, response) => {
     const { slug } = request.params
 try{
@@ -67,7 +67,7 @@ const getStationById  = async (request, response) => {
   
     return response.status(201).send(newStation)
   }
-
+*/
 module.exports = { getAllStations, 
                     getStationByCallLetters,
                     getStationByFrequency,
