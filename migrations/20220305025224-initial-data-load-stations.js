@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  up: async(queryInterface,Sequelize) => {
+  up: async(queryInterface, Sequelize) => {
     await queryInterface.bulkInsert('stations', [{
       frequency: '88.1', callLetters: 'WMBR', market: 'college'},
       {frequency: '88.9', callLetters: 'WERS', market: 'college'},
@@ -27,34 +27,9 @@ module.exports = {
       {frequency: '89.7', callLetters: 'WGBH', market: 'public'},
       {frequency: '99.5', callLetters: 'WCRB', market: 'commercial'}
         ])
-    await queryInterface.bulkInsert('programming', [{
-      stationsId: 1, id: 2},
-      {stationsId: 2, id: 2},
-      {stationsId: 3, id: 2},
-      {stationsId: 4, id: 9},
-      {stationsId: 5, id: 2},
-      {stationsId: 6, id: 2},
-      {stationsId: 7, id: 2},
-      {stationsId: 8, id: 2},
-      {stationsId: 9, id: 3},
-      {stationsId: 10, id: 12},
-      {stationsId: 11, id: 3},
-      {stationsId: 12, id: 10},
-      {stationsId: 13, id: 7},
-      {stationsId: 14, id: 3},
-      {stationsId: 15, id: 1},
-      {stationsId: 16, id: 13},
-      {stationsId: 17, id: 8},
-      {stationsId: 18, id: 11},
-      {stationsId: 19, id: 5},
-      {stationsId: 20, id: 5},
-      {stationsId: 21, id: 6},
-      {stationsId: 22, id: 9},
-      {stationsId: 23, id: 4}
-    ])
   },
 
   down: (queryInterface, Sequelize) => {
-     queryInterface.bulkDelete('stations','programming')
+    queryInterface.bulkDelete('stations')
   }
 };

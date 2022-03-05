@@ -3,6 +3,7 @@ const stations = (connection, Sequelize) => connection.define('stations', {
     frequency: { type: Sequelize.INTEGER, allowNull: false },
     callLetters: { type: Sequelize.STRING, allowNull: false },
     market: { type: Sequelize.STRING, allowNull: false }
-  }, { paranoid: true })
-  
-  module.exports = stations
+
+    }, { paranoid: true })
+
+module.exports = stations
