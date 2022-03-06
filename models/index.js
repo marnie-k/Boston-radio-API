@@ -1,19 +1,25 @@
 const Sequelize = require('sequelize')
-const allConfigs = require('../config/sequelize')
 const StationsModel = require('./stations')
 const ProgrammingModel = require('./programming')
 
+const allConfigs = require('../configs/sequelize')
+
 const environment = process.env.NODE_ENV || 'development'
 const config = allConfigs[environment]
-/*
+
 const connection = new Sequelize(config.database, config.username, config.password, {
-    host: config.host, dialect: config.dialect
-  })
-  */
-const StationId = StationsModel(connection, Sequelize)
-const Programming = ProgrammingModel(connection, Sequelize)
+  host: config.host, dialect: config.dialect,
+})
 
-Programming.hasMany(StationIds)
-StationId.belongsTo(Stations)
 
-module.exports = { StationId, Programming ,Op: Sequelize.Op }
+const Stations = StationsModel(connection, Sequelize)
+const Programming = ProgrammingModel(connection, Sequelize, Stations)
+
+Programming.hasMany(Stations)
+Stations.belongsTo(Programming)
+
+module.exports = {
+  Stations,
+  Programming,
+  Op: Sequelize.Op
+}

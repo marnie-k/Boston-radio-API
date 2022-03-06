@@ -1,10 +1,15 @@
-const { response } = require('express')
-const express = require('express')
+const models = require('../models')
 
+const getAllStations = async (request, response) => {
+  const stations = await models.Stations.findAll({
+    attributes: ['id', 'frequency', 'callLetters', 'market']
+  })
 
-const getAllStations =  (request, response) => {
-    const stations =  models.stations.findAll()
+  return response.send(stations)
 }
 
-module.exports = getAllStations
+module.exports = {
+  getAllStations
+
+}
 
