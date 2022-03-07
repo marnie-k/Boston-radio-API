@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize')
 const StationsModel = require('./stations')
-const ProgrammingModel = require('./programming')
+const ProgrammingModel = require('./programmings')
 
 const allConfigs = require('../configs/sequelize')
 

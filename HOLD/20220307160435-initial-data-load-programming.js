@@ -1,7 +1,7 @@
 'use strict'
 module.exports = {
   up: async (queryInterface) => {
-    await queryInterface.bulkInsert('programming', [
+    await queryInterface.bulkInsert('programmings', [
       { stationId: 2, programming: 'Variety' },
       { stationId: 2, programming: 'Variety' },
       { stationId: 2, programming: 'Variety' },
@@ -28,6 +28,6 @@ module.exports = {
     ])
   },
   down: (queryInterface) => {
-    queryInterface.bulkDelete('programming')
+    queryInterface.bulkDelete('programmings')
   }
 }

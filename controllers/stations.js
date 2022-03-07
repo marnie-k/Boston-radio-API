@@ -8,8 +8,18 @@ const getAllStations = async (request, response) => {
   return response.send(stations)
 }
 
-module.exports = {
-  getAllStations
+const getStationByCallLetters = async (request, response) => {
+  const { callLetters } = request.params
 
+  const matchedStation = await models.Stations.findOne({where: { callLetters }})
+
+  return matchedStation
+    ? response.send(matchedStation)
+    : response.sendStatus(404)
+}
+
+module.exports = {
+  getAllStations,
+  getStationByCallLetters
 }
 
