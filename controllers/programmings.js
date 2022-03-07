@@ -1,5 +1,6 @@
 const models = require('../models')
 
+// getAll working 2pm Mon
 const getAllProgramming = async (request, response) => {
   const allProgramming = await models.Programming.findAll({
     attributes: ['id', 'programming']
@@ -9,12 +10,7 @@ const getAllProgramming = async (request, response) => {
 
 }
 
-const getProgrammingById = async (request, response) => {
-  const authors = await models.programming.findAll()
-
-}
-
 
 module.exports = { getAllProgramming,
-  getProgrammingById }
+   }
 

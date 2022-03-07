@@ -23,6 +23,6 @@ module.exports = {
   },
 
   down: (queryInterface) => {
-    return queryInterface.dropTable('stations', 'programming')
+    return queryInterface.dropTable('stations', 'programmings')
   }
 }
