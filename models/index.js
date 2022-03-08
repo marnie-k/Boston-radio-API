@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize')
 const StationsModel = require('./stations')
-const ProgrammingModel = require('./programmings')
 
 const allConfigs = require('../configs/sequelize')
 
@@ -12,14 +11,9 @@ const connection = new Sequelize(config.database, config.username, config.passwo
 })
 
 const Stations = StationsModel(connection, Sequelize)
-const Programming = ProgrammingModel(connection, Sequelize, Stations)
-
-// Programming.hasMany(Stations)
-// Stations.belongsTo(Programming)
 
 module.exports = {
   Stations,
-  Programming,
   Sequelize
 }
 

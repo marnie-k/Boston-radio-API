@@ -4,7 +4,7 @@ const models = require('../models')
 const getAllStations = async (request, response) => {
   try {
     const stations = await models.Stations.findAll({
-      attributes: ['id', 'frequency', 'callLetters', 'market']
+      attributes: ['id', 'frequency', 'callLetters', 'market', 'programming']
     })
 
     return response.send(stations)
@@ -19,7 +19,7 @@ const getStationById = async (request, response) => {
 
     const stationNum = await models.Stations.findOne({
       where: { id },
-      attributes: ['id', 'frequency', 'callLetters', 'market']
+      attributes: ['id', 'frequency', 'callLetters', 'market', 'programming']
     })
 
     return stationNum
@@ -48,22 +48,20 @@ const getStationByCallLetters = async (request, response) => {
 }
 
 /*
-const getStationByCallLetter = async (request, response) => {
-  try {
-    const { callLetter } = request.params
+cconst saveNewHero = (request, response) => {
+  const { name, realname, firstappearance, slug } = request.body
 
-    const stationCallLetter = await models.Stations.findOne({
-      where: { callLetter },
-      attributes: ['id', 'frequency', 'callLetters', 'market']
-    })
-
-    return stationCallLetter
-      ? response.send(stationCallLetter)
-      : response.sendStatus(404)
-  } catch (error) {
-    return response.status(404).send('Unable to get station')
+  if (!name || !realname || !firstappearance || !slug) {
+    return response.status(400).send('The following fields are required: name, realname, firstappearance, slug')
   }
+
+  const newHero = { name, realname, firstappearance, slug }
+
+  heroes.push(newHero)
+
+  return response.status(201).send(newHero)
 }
+
 */
 module.exports = {
   getAllStations,
