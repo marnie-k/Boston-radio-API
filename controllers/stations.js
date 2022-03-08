@@ -1,4 +1,4 @@
-const models = require('../models')
+const models = require('../models/stations')
 
 
 const getAllStations = async (request, response) => {
@@ -47,24 +47,22 @@ const getStationByCallLetters = async (request, response) => {
     : response.sendStatus(404)
 }
 
-/*
-cconst saveNewHero = (request, response) => {
-  const { name, realname, firstappearance, slug } = request.body
+const saveNewStation = async(request, response) => {
+  const { id, frequency, callLetters, market, programming } = request.body
 
-  if (!name || !realname || !firstappearance || !slug) {
-    return response.status(400).send('The following fields are required: name, realname, firstappearance, slug')
+  if (!id || !frequency || !callLetters || !market || !programming) {
+    return response.status(400).send('The following fields are required: id, frequency, callLetters, market, programming')
   }
+  const newStation = await models.stations.create({ id, frequency, callLetters, market, programming })
 
-  const newHero = { name, realname, firstappearance, slug }
+  stations.push(newStation)
 
-  heroes.push(newHero)
-
-  return response.status(201).send(newHero)
+  return response.status(201).send(newStation)
 }
 
-*/
 module.exports = {
   getAllStations,
   getStationById,
-  getStationByCallLetters
+  getStationByCallLetters,
+  saveNewStation
 }
