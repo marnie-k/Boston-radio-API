@@ -1,32 +1,36 @@
 const models = require('../models')
 
-// getAll working 2pm Monday
+
 const getAllStations = async (request, response) => {
-  const stations = await models.Stations.findAll({
-    attributes: ['id', 'frequency', 'callLetters', 'market']
-  })
+  try {
+    const stations = await models.Stations.findAll({
+      attributes: ['id', 'frequency', 'callLetters', 'market']
+    })
 
-  return response.send(stations)
+    return response.send(stations)
+  } catch (error) {
+    return response.status(404)
+  }
 }
 
-// still fixing 2:25 Mon
-// I am getting this error msg not get.all error
 const getStationById = async (request, response) => {
-  try{
-  const { id } = request.params
+  try {
+    const { id } = request.params
 
-  const matchedStation = await models.Stations.findOne({where: { id }})
+    const stationNum = await models.Stations.findOne({
+      where: { id },
+      attributes: ['id', 'frequency', 'callLetters', 'market']
+    })
 
-  return matchedStation
-    ? response.send(matchedStation)
-    : response.sendStatus(404)
-} catch (error) {
-  return response.status(500).send('Cannot get station. Please try again')
-}
+    return stationNum
+      ? response.send(stationNum)
+      : response.sendStatus(404)
+  } catch (error) {
+    return response.status(404).send('Unable to get station')
+  }
 }
 
 module.exports = {
   getAllStations,
   getStationById
 }
-
