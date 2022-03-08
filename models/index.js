@@ -11,15 +11,14 @@ const connection = new Sequelize(config.database, config.username, config.passwo
   host: config.host, dialect: config.dialect,
 })
 
-
 const Stations = StationsModel(connection, Sequelize)
 const Programming = ProgrammingModel(connection, Sequelize, Stations)
 
-Programming.hasMany(Stations)
-Stations.belongsTo(Programming)
+// Programming.hasMany(Stations)
+// Stations.belongsTo(Programming)
 
 module.exports = {
   Stations,
   Programming,
-  Op: Sequelize.Op
+  Sequelize
 }

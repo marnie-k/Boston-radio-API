@@ -30,7 +30,43 @@ const getStationById = async (request, response) => {
   }
 }
 
+const getStationByCallLetters = async (request, response) => {
+  const { identifier } = request.params
+  const station = await models.Stations.findAll({
+    where: {
+      [models.Sequelize.Op.or]: [
+        { id: identifier },
+        { callLetters: { [models.Sequelize.Op.like]: `%${identifier}%` }, },
+        { market: { [models.Sequelize.Op.like]: `%${identifier}%` }, },
+      ]
+    },
+    include: [{ model: models.Programming }]
+  })
+  return station
+    ? response.send(station)
+    : response.sendStatus(404)
+}
+
+/*
+const getStationByCallLetter = async (request, response) => {
+  try {
+    const { callLetter } = request.params
+
+    const stationCallLetter = await models.Stations.findOne({
+      where: { callLetter },
+      attributes: ['id', 'frequency', 'callLetters', 'market']
+    })
+
+    return stationCallLetter
+      ? response.send(stationCallLetter)
+      : response.sendStatus(404)
+  } catch (error) {
+    return response.status(404).send('Unable to get station')
+  }
+}
+*/
 module.exports = {
   getAllStations,
-  getStationById
+  getStationById,
+  getStationByCallLetters
 }
