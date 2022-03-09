@@ -51,11 +51,11 @@ const saveNewStation = async(request, response) => {
   const { id, frequency, callLetters, market, programming } = request.body
 
   if (!id || !frequency || !callLetters || !market || !programming) {
-    return response.status(400).send('The following fields are required: id, frequency, callLetters, market, programming')
+    return response.status(400).send('The following fields are required:frequency, callLetters, market, programming')
   }
-  const newStation = await models.stations.create({ id, frequency, callLetters, market, programming })
+  const newStation = await models.Stations.create({ frequency, callLetters, market, programming })
 
-  stations.push(newStation)
+  Stations.push(newStation)
 
   return response.status(201).send(newStation)
 }
