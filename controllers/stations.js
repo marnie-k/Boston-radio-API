@@ -1,4 +1,4 @@
-const models = require('../models/stations')
+const models = require('../models')
 
 
 const getAllStations = async (request, response) => {
@@ -29,7 +29,7 @@ const getStationById = async (request, response) => {
     return response.status(404).send('Unable to get station')
   }
 }
-
+/*
 const getStationByCallLetters = async (request, response) => {
   const { identifier } = request.params
   const station = await models.Stations.findAll({
@@ -46,23 +46,19 @@ const getStationByCallLetters = async (request, response) => {
     ? response.send(station)
     : response.sendStatus(404)
 }
-
+*/
 const saveNewStation = async(request, response) => {
-  const { id, frequency, callLetters, market, programming } = request.body
-
-  if (!id || !frequency || !callLetters || !market || !programming) {
+  const { frequency, callLetters, market, programming } = request.body
+  if (!frequency || !callLetters || !market || !programming) {
     return response.status(400).send('The following fields are required:frequency, callLetters, market, programming')
   }
   const newStation = await models.Stations.create({ frequency, callLetters, market, programming })
-
-  Stations.push(newStation)
-
+  // Stations.push(newStation)
   return response.status(201).send(newStation)
 }
 
 module.exports = {
   getAllStations,
   getStationById,
-  getStationByCallLetters,
   saveNewStation
 }
