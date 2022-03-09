@@ -1,4 +1,5 @@
 const express = require('express')
+const path = require('path')
 const { 
   getAllStations,
   getStationById,
@@ -8,11 +9,14 @@ const bodyParser = require('body-parser')
 
 const app = express()
 
-app.get('/stations', getAllStations)
-app.get('/stations/:id', getStationById)
-app.post('/', bodyParser.json(), saveNewStation)
+app.use(express.static('client/build'))
 
-app.all('*', error)
+app.get('/api/stations', getAllStations)
+app.get('/api/stations/:id', getStationById)
+app.post('/api/', bodyParser.json(), saveNewStation)
+
+app.all('*', (request, response) => response.sendFile(path.resolve(__dirname, 'client/build', 'index.html')))
+
 
 app.listen(1337, () => {
   // eslint-disable-next-line no-console
