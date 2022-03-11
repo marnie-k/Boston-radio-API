@@ -10,7 +10,7 @@ const AllStations = () => {
     return (
         <div>
             <div> This is AllStations </div>
-            <div> List of All Stations with Call Letters and Frequency</div>
+            <div> List of All Stations with ID (NavLink) Call Letters and Frequency</div>
         </div>
     )
 }
