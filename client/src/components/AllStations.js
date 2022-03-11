@@ -1,5 +1,5 @@
-// this is the child of Radio
-// this receives props from radio
+// this is the child of Landing
+// this receives props from Landing
 import React from "react";
 //  import { NavLink } from 'react-router-dom'
 // This should return a list of all the stations
@@ -11,7 +11,7 @@ const AllStations = () => {
       <div> This is AllStations </div>
       <div>
         {" "}
-        List of All Stations with ID (NavLink) Call Letters and Frequency
+        List of All Stations with ID (NavLink to Details) Call Letters and Frequency
       </div>
     </div>
   );
