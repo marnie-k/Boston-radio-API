@@ -18,16 +18,16 @@ const Radio = () => {
         }
         fetchAllStations()
     }, [])
-
+/*
 console.log(allStations)
 console.log(allStations.map((x) => x.callLetters))
 console.log(allStations.map((x) => x.frequency))
 
-
+*/
     useEffect(() => {
         setFilteredStations(allStations.filter((station) => station.callLetters.toUpperCase().includes(callLetters.toUpperCase())))
 
-    }, [callLetters, allStations])
+    }, [callLetters])
 
     return (
         <div>

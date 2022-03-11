@@ -4,6 +4,11 @@
   padding: 25px;
 }
 
+.Error{
+  color:darkseagreen;
+  background: rgb(114, 40, 31)
+}
+
 .Header{
   color:rgb(39, 5, 102);
   font-family: Georgia, 'Times New Roman', Times, serif;

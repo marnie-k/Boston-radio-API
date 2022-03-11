@@ -4,7 +4,7 @@ import React, { useState, useEffect }from 'react';
 import axios from "axios";
 
     const OneStation = (props) => {
-//compoenet named OneStation
+    //compoenet named OneStation
         const [callLetters, setCallLetters] = useState([])
         // POS named callLetters, rerenders useEffect() runs, default empty array
         const [frequency, setFrequency] = useState([])
@@ -15,9 +15,15 @@ import axios from "axios";
         // POS named programming, rerenders when useEffect() runs, default empty array
         
         useEffect(()=> {
+        /*
+        1. fetch data from localhost
+        2. take fetched data and filter on call letters
+        3. create new const for  filtered station called "station"
+        4. display  call letters, frequency, market, and programming for station
+        */
 
         }, [props.input] 
-        //dependency is the POS named input passed as props frmo the Search component
+        //dependency is the POS named INPUT passed as PROPS frmo the Search component
         )
 
     return (

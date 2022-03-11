@@ -1,12 +1,18 @@
-import './App.css'
 import React from 'react'
-import Radio from './components/Radio'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Error from './components/Error' // working 6pm
+import Landing from './components/Landing' // connection working 6:30
+import Details from './components/Details' 
 
 const App = () => {
 	return (
-		<div>
-		<Radio />
-		</div>
+	<BrowserRouter>
+		<Routes>
+			<Route path='*' element={<Error />} />
+			<Route path='/' element={<Landing/>}/>
+			<Details path='/stations/:callLetters' element={<Details/>} />
+		</Routes>
+	</BrowserRouter>
 	)
 }
 
