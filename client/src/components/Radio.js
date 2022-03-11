@@ -1,7 +1,7 @@
 // This is the parent of AllStations, OneStation, and Title
 // this can give props to AllStations, OneStation, and Title
 import React, { useState, useEffect }from 'react';
-import Title from './Title'
+import Search from './Search'
 import axios from 'axios';
 import OneStation from './OneStation';
 import AllStations from './AllStations';
@@ -36,7 +36,7 @@ console.log(allStations.map((x) => x.frequency))
           
             
             <div className="AllStations"><AllStations /></div>
-            <div><OneStation /></div>
+            <div><Search /></div>
         <div>{filteredStations.map(station => {
             return(
                 <div className="CallLetters">

@@ -2,13 +2,11 @@
   color:rgb(45, 76, 134);
   font-size: small;
   padding: 25px;
-  text-align:center;
 }
 
 .Header{
   color:rgb(39, 5, 102);
   font-family: Georgia, 'Times New Roman', Times, serif;
-  text-align: center;
 }
 
 input{
@@ -18,14 +16,12 @@ input{
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: larger;
   padding: 15px;
-  text-align: center;
 }
 
 .OneStation{
   color:rgb(240, 67, 14);
   font-weight: bold;
   font-size: large;
-  text-align: center;
   line-height: 1cm;
 }
 
@@ -35,9 +31,9 @@ input{
   overflow: scroll;
 }
 
-.Station {
+.Search {
   color:rgb(12, 7, 12);
-  font-size: small;
+  font-size: large;
 }
 
 .StationData {
@@ -50,6 +46,5 @@ input{
   text-decoration: darkmagenta;
   color:rgb(39, 5, 102);
   font-family: Georgia, 'Times New Roman', Times, serif;
-  text-align: center;
 }
 

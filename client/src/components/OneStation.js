@@ -1,19 +1,31 @@
-// this is the child of Radio
-// this receives props from radio
-import React, { useState }from 'react';
+// this is the child of Search
+// this receives props from Search
+import React, { useState, useEffect }from 'react';
+import axios from "axios";
 
+    const OneStation = (props) => {
+//compoenet named OneStation
+        const [callLetters, setCallLetters] = useState([])
+        // POS named callLetters, rerenders useEffect() runs, default empty array
+        const [frequency, setFrequency] = useState([])
+        // POS named frequency, rerenders when useEffect() runs, default empty array
+        const [markets, setmarkets] = useState([])
+        // POS named markets, rerenders when useEffect() runs, default empty array 
+        const [programming, setProgramming] = useState([])
+        // POS named programming, rerenders when useEffect() runs, default empty array
+        
+        useEffect(()=> {
 
-//const handleCallLetters = event => {setCallLetters(event.target.value)
-
-const OneStation = (props) => {
-    const [callLetters, setCallLetters] = useState('')
+        }, [props.input] 
+        //dependency is the POS named input passed as props frmo the Search component
+        )
 
     return (
-        <div className="OneStation">
-            <div>Tell me more about:</div>
-            <input type="text" onChange={(event) => setCallLetters(event.target.value)} />
-            <div className="StationData">show data for selected station here</div>
-            <div className="StationData">Frequency: (100.5)  Call letters: (WMSK) Market: (College)  Programming: (Alternative)</div>
+      <div className="StationData">
+            <div >Call letters: {props.input}</div>
+            <div>Frequecy: {frequency}</div>
+            <div>Market: {markets}</div>
+            <div>Programming: {programming}</div>
         </div>
 )
 }
