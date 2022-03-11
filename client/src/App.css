@@ -1,13 +1,55 @@
-
-.Header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: rgb(31, 15, 15);
+.AllStations{
+  color:rgb(45, 76, 134);
+  font-size: small;
+  padding: 25px;
+  text-align:center;
 }
 
+.Header{
+  color:rgb(39, 5, 102);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+}
+
+input{
+  border: 25px solid black(500, 500, 500) ;
+  margin-bottom: 2px;
+  color:black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: larger;
+  padding: 15px;
+  text-align: center;
+}
+
+.OneStation{
+  color:rgb(240, 67, 14);
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+  line-height: 1cm;
+}
+
+.Radio{
+  color:rgb(240, 71, 10);
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  overflow: scroll;
+}
+
+.Station {
+  color:rgb(12, 7, 12);
+  font-size: small;
+}
+
+.StationData {
+  color:rgb(122, 67, 4);
+  font-size: large;
+}
+
+.Title {
+  font-size: xxx-large;
+  text-decoration: darkmagenta;
+  color:rgb(39, 5, 102);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+}
 

@@ -1,35 +1,54 @@
-// This is the parent of Title
-// this can give props to title
-import React from 'react';
-import { useState, useEffect } from 'react';
+// This is the parent of AllStations, OneStation, and Title
+// this can give props to AllStations, OneStation, and Title
+import React, { useState, useEffect }from 'react';
 import Title from './Title'
-import Station from './Station'
 import axios from 'axios';
+import OneStation from './OneStation';
+import AllStations from './AllStations';
 const Radio = () => {
-const [callLetters, setCallLetters] = useState('')
-const [allStations, setAllStations] = useState([])
-useEffect(() => {
-    console.log('My useEffect is working')
-    const fetchAllStations = async () => {
-        const fetchedData = await axios.get('http://localhost:1337/api/stations')
+    
+    const [callLetters, setCallLetters] = useState('')
+    const [allStations, setAllStations] = useState([])
+    const [filteredStations, setFilteredStations] = useState([])
+
+    useEffect(() => {
+        const fetchAllStations = async () => {
+            const fetchedData = await axios.get('http://localhost:1337/api/stations')
         setAllStations(fetchedData.data)
-        console.log(fetchedData.data)
-    }
-    fetchAllStations()
-}, [callLetters])
+        }
+        fetchAllStations()
+    }, [])
+
 console.log(allStations)
 console.log(allStations.map((x) => x.callLetters))
 console.log(allStations.map((x) => x.frequency))
-const handleCallLetters = event => {
-setCallLetters(event.target.value)
-}
+
+
+    useEffect(() => {
+        setFilteredStations(allStations.filter((station) => station.callLetters.toUpperCase().includes(callLetters.toUpperCase())))
+
+    }, [callLetters, allStations])
+
     return (
         <div>
-        <Title callLetters = {callLetters}/>
-        <input type= "text"  onChange={handleCallLetters}/>
-        <Station/>
-        </div>
+            <h1 className="Title">Welcome to Boston Radio</h1>
+            <h2 className="Header">Greater Boston area radio stations</h2>
+          
+            
+            <div className="AllStations"><AllStations /></div>
+            <div><OneStation /></div>
+        <div>{filteredStations.map(station => {
+            return(
+                <div className="CallLetters">
+                    <u> {station.callLetters}</u>  by:
+                    <h2 className="Frequency">{station.callLetterst}</h2>
+            </div>    
+            )
+        })
+        } </div>
+    </div>
     )
 }
+       
 export default Radio;
 

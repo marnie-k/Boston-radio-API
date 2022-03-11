@@ -1,15 +1,14 @@
 // this is the child of Radio
 // this receives props from radio
 import React from 'react';
-import Station from './AllStations'
 
 //const handleCallLetters = event => {setCallLetters(event.target.value)
 
-const Title = (props) => {
+const AllStations = (props) => {
     return (
     <div>
-    <h2>Currently listening to: {props.callLetters} - title component</h2>
+list of all stations here
     </div>
 )
 }
-export default Title;
+export default AllStations;
