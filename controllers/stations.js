@@ -1,9 +1,9 @@
-const models = require("../models");
+const models = require( '../models');
 
 const getAllStations = async (request, response) => {
   try {
     const stations = await models.Stations.findAll({
-      attributes: ["id", "frequency", "callLetters", "market", "programming"],
+      attributes: ['id ', 'frequency', 'callLetters', 'market', 'programming'],
     });
 
     return response.send(stations);
@@ -18,12 +18,12 @@ const getStationById = async (request, response) => {
 
     const stationNum = await models.Stations.findOne({
       where: { id },
-      attributes: ["id", "frequency", "callLetters", "market", "programming"],
+      attributes: ['id ', 'frequency', 'callLetters', 'market', 'programming'],
     });
 
     return stationNum ? response.send(stationNum) : response.sendStatus(404);
   } catch (error) {
-    return response.status(404).send("Unable to get station");
+    return response.status(404).send( 'Unable to get station');
   }
 };
 
@@ -33,7 +33,7 @@ const saveNewStation = async (request, response) => {
     return response
       .status(400)
       .send(
-        "The following fields are required:frequency, callLetters, market, programming"
+         'The following fields are required:frequency, callLetters, market, programming '
       );
   }
   const newStation = await models.Stations.create({

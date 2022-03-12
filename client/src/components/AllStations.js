@@ -1,6 +1,6 @@
 // this is the child of Landing
 // this receives props from Landing
-import React from "react";
+import React from  'react';
 //  import { NavLink } from 'react-router-dom'
 // This should return a list of all the stations
 // the following fields should be displayed: Call Letters, Frequency
@@ -10,7 +10,7 @@ const AllStations = () => {
     <div>
       <div> This is AllStations </div>
       <div>
-        {" "}
+        {''}
         List of All Stations with ID (NavLink to Details) Call Letters and Frequency
       </div>
     </div>

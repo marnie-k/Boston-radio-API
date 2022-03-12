@@ -1,7 +1,7 @@
 // This is a child of AllStations
 // This receives props from AllStations
 
-import react from "react";
+import react from  'react';
 
 const Details = () => {
   return (
