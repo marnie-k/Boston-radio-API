@@ -1,34 +1,33 @@
-import React, { useState, useEffect } from  'react';
+import React, { useState, useEffect } from 'react';
+import StationList from './StationList'
 import axios from 'axios';
-
-// import { NavLink } from 'react-router-dom';
+//import Details from './Details'
 
 const Landing = () => {
-
+  const [callLetters] = useState('')
   const [stations, setStations] = useState([])
+  
   
   useEffect(() => {
     const fetchStations = async() => {
-      const fetchedData = await axios.get('http://localhost:1337/api/stations') 
+      const fetchedData = await axios.get('http://localhost:1337/api/stations')
       setStations(fetchedData.data)
-     // console.log(fetchedData.data)
+     
     }
-  fetchStations()  
-  },[])
-
+  fetchStations()
+  }, [])
+  
+  const stationFilter = (station) => station.callLetters.includes(callLetters)
+ 
   return (
     <div>
         <h1 className= 'Title'>Welcome to Boston Radio</h1>
         <h2 className= 'Header'>Greater Boston area radio stations</h2>
-                {stations.map(
-                      station=>{
-                        return(
-                          <div>
-                            {station.callLetters}~{station.frequency}
-                          </div>)})
-                 }       
-      </div>
-  );
-};
+      <StationList
+        stations={stations.filter(stationFilter)}
+      />
 
+      </div>
+  )
+}
 export default Landing;
