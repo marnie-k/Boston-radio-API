@@ -3,7 +3,7 @@ const models = require( '../models');
 const getAllStations = async (request, response) => {
   try {
     const stations = await models.Stations.findAll({
-      attributes: ['id ', 'frequency', 'callLetters', 'market', 'programming'],
+      attributes: ['id', 'frequency', 'callLetters', 'market', 'programming'],
     });
 
     return response.send(stations);
@@ -18,7 +18,7 @@ const getStationById = async (request, response) => {
 
     const stationNum = await models.Stations.findOne({
       where: { id },
-      attributes: ['id ', 'frequency', 'callLetters', 'market', 'programming'],
+      attributes: ['id', 'frequency', 'callLetters', 'market', 'programming'],
     });
 
     return stationNum ? response.send(stationNum) : response.sendStatus(404);
