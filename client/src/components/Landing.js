@@ -1,10 +1,9 @@
-import axios from 'axios';
 import React, { useState, useEffect } from  'react';
-
+import axios from 'axios';
+// import { NavLink } from 'react-router-dom';
 
 const Landing = () => {
 
-  //POS named stations to hold all stations
   const [stations, setStations] = useState([])
   
   useEffect(() => {
@@ -18,7 +17,7 @@ const Landing = () => {
 
   return (
     <div>
-      <h1 className= 'Title'>Welcome to Boston Radio</h1>
+       <h1 className= 'Title'>Welcome to Boston Radio</h1>
       <h2 className= 'Header'>Greater Boston area radio stations</h2>
         <div>{stations.map(station=>{
            return(
