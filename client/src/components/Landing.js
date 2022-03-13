@@ -5,7 +5,7 @@ import react, { useState,useEffect } from  'react';
 const Landing = () => {
 
   //POS named stations to hold all stations
-  const [stations, setStations] = useState(['hi'])
+  const [stations, setStations] = useState([[]])
 
   useEffect(() => {
     const fetchStations = async() => {
@@ -20,10 +20,10 @@ const Landing = () => {
     <div>
       <h1 className= 'Title'>Welcome to Boston Radio</h1>
       <h2 className= 'Header'>Greater Boston area radio stations</h2>
-      <div>{stations.map(station=>{
-        return(
-          <div>{station.id}</div>
-        )
+        <div>{stations.map(station=>{
+           return(
+            <div>{station.id}</div>
+            )
       })}</div>
     </div>
   );
