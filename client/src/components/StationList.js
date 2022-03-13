@@ -8,7 +8,7 @@ const StationList = (props) => {
     <div>
         <h1> Select a Station</h1>
         <ul className='StationList'>
-            {stations.map(station => <li key={station.callLetters}><NavLink to={`/stations/${station.callLetters}`}>{station.callLetters}</NavLink></li>)}
+            {stations.map(station => <li key={station.id}> <NavLink to={`/stations/${station.id}`}>{station.id}: </NavLink>{station.callLetters}</li>)}
             </ul>
     </div>
      )

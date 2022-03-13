@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import StationList from './StationList'
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 //import Details from './Details'
 
 const Landing = () => {
@@ -12,6 +13,7 @@ const Landing = () => {
     const fetchStations = async() => {
       const fetchedData = await axios.get('http://localhost:1337/api/stations')
       setStations(fetchedData.data)
+      console.log(fetchedData.data)
      
     }
   fetchStations()
