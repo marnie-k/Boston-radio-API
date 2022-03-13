@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, { useState,useEffect } from  'react';
-// import AllStations from  './AllStations';
+import React, { useState, useEffect } from  'react';
+
 
 const Landing = () => {
 
@@ -22,7 +22,7 @@ const Landing = () => {
       <h2 className= 'Header'>Greater Boston area radio stations</h2>
         <div>{stations.map(station=>{
            return(
-            <div>{station.callLetters}</div>
+            <div>{station.callLetters}~~{station.frequency}</div>
             )
       })}</div>
     </div>

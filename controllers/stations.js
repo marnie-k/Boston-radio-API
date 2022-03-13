@@ -33,7 +33,7 @@ const saveNewStation = async (request, response) => {
     return response
       .status(400)
       .send(
-         'The following fields are required:frequency, callLetters, market, programming '
+         'The following fields are required:frequency, callLetters, market, programming'
       );
   }
   const newStation = await models.Stations.create({
